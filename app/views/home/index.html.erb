@@ -1,0 +1,10 @@
+<%= form_tag('/', remote: true, method: :GET) do %>
+  <h2>Weather Api</h2>
+  <span>Max 5 days Allowed</span><br/>
+  <%= number_field_tag 'days', 1, within: 1...6, class: 'special_input' %>
+  <%= submit_tag 'Go' %>
+<% end %>
+
+<div id="weather-data">
+  <%= render partial: 'data', collection: @data %>
+</div>
