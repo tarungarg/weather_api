@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
 
-  describe HomeController do
+  describe 'functional tests for controller' do
     let(:client) { WeatherApi.http_get }
 
     context "GET #index" do
@@ -13,11 +13,11 @@ RSpec.describe HomeController, type: :controller do
         end
       end
 
-      it "should check weather data" do
+      it "should check weather data wrt to date" do
         expect(client.first["date"]).to eq("2018-02-27")
       end
 
-      it "should check array data" do
+      it "should check datatype for response" do
         expect(client).to be_an_instance_of(Array)
       end
     end
