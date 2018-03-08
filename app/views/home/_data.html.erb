@@ -1,3 +1,7 @@
-<%= data['date'] %><br/>
-<%= data['astronomy'] %><br/>
-<hr/>
+<tr>
+  <td><%= data['date'].to_date.strftime('%a %b %d') %></td>
+  <td><%= data['astronomy'][0]['sunrise'] %></td>
+  <td><%= data['astronomy'][0]['sunset'] %></td>
+  <td><%= data['astronomy'][0]['moonrise'] %></td>
+  <td><%= data['astronomy'][0]['moonset'] %></td>
+</tr>

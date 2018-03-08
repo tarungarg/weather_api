@@ -1,10 +1,31 @@
-<%= form_tag('/', remote: true, method: :GET) do %>
-  <h2>Weather Api</h2>
-  <span>Max 5 days Allowed</span><br/>
-  <%= number_field_tag 'days', 1, within: 1...6, class: 'special_input' %>
-  <%= submit_tag 'Go' %>
-<% end %>
-
-<div id="weather-data">
-  <%= render partial: 'data', collection: @data %>
+<div class="page-header">
+  <h2 class="center">Weather Information</h2>
 </div>
+
+<div class="well">
+<%= form_tag('/', remote: true, method: :GET) do %>
+  <div class="form-group">
+    <label for="inputsm">Enter Days (<mark>Max 5 days Allowed</mark>)</label>
+    <%= number_field_tag 'days', params[:days] || 1, within: 1...6, class: 'form-control input-sm', id: 'inputsm'%><br/>
+  </div>
+  <div class="form-group">
+    <%= submit_tag 'Go', class: 'btn btn-default' %>
+  </div>
+<% end %>
+</div>
+<br/>
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Date</th>
+    <th>Sunrise</th>
+    <th>Sunset</th>
+    <th>Moonrise</th>
+    <th>Moonset</th>
+  </tr>
+</thead>
+<tbody id="weather-data">
+  <%= render partial: 'data', collection: @data %>
+</tbody>
+</table>
