@@ -51,6 +51,9 @@ group :development, :test do
   gem "capybara"
 end
 
+
+gem 'bootstrap-sass', '~> 3.2.0'
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
